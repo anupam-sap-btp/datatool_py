@@ -1,0 +1,6 @@
+psycopg2
+fastapi
+pydantic
+dotenv
+uvicorn
+azure-storage-blob
