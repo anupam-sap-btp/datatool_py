@@ -1,5 +1,6 @@
 python -m venv env1
 .\env1\Scripts\activate
+source env/bin/activate # for Linux
 
 requirements.txt
 pip install -r requirements.txt
@@ -39,3 +40,11 @@ SELECT
 FROM public."ObjectsPhasesSteps" p
 LEFT OUTER JOIN public."StepMaster" s ON p.step_id = s.step_id
 ORDER BY p.object_id, p.phase_num, p.step_seq;        
+
+
+cf push --var prefixval=dev
+cf delete <<appname>> -r
+cf domains
+cf delete-route <<DOMAIN>> [--hostname HOSTNAME] [--path PATH] [-f]
+cf env <<appname>>
+cf set-env APP_NAME ENV_VAR_NAME ENV_VAR_VALUE

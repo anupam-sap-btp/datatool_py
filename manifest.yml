@@ -1,0 +1,14 @@
+---
+applications:
+- name: datatool
+  # random-route: true
+  routes:
+  - route: ((prefixval))-datatool-frontend.cfapps.us10-001.hana.ondemand.com  
+  path: ./
+  memory: 256M
+  disk-quota: 1024M
+  buildpacks: 
+  - python_buildpack
+  command: uvicorn app:app --port 8080 --host 0.0.0.0
+  env:
+    APPPORT: ((port))    
